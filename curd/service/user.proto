@@ -1,0 +1,29 @@
+
+//protoc --go_out=. --go-grpc_out=. helloworld.proto
+syntax = "proto3";
+// option go_package = "./service";
+
+
+package user;
+
+service UserService {
+	rpc CreateUser (User) returns (UserResponse);
+	rpc GetUser (UserRequest) returns (User);
+	rpc UpdateUser (User) returns (UserResponse);
+	rpc DeleteUser (User) returns (UserResponse);
+
+}
+
+message User {
+	int u_id = 1;
+	string name = 2;
+	string email = 3;
+}
+
+message UserResponse {
+	string message = 1;
+}
+
+message UserRequest {
+
+}
